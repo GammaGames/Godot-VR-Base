@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Main.gd" type="Script" id=2]
 [ext_resource path="res://assets/materials/Grass.tres" type="Material" id=3]
+[ext_resource path="res://objects/Cube.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 200, 200 )
 
 [sub_resource type="ConvexPolygonShape" id=2]
+margin = 0.1
 points = PoolVector3Array( 100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, -100 )
 
 [node name="World" type="Spatial"]
@@ -30,3 +32,6 @@ shape = SubResource( 2 )
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, -0.75, 0.433013, 0, 14, 0 )
 shadow_enabled = true
+
+[node name="PickableObject" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.997855, 0.604301, -0.862849 )
